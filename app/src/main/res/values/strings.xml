@@ -1,9 +1,3 @@
 <resources>
     <string name="app_name">Video Shuffle</string>
-    <string name="about">This is a video shuffling app that was made for an Information Security project.
-    In order to use this app, you must sign in with a trusted social media outlet (e.g. FaceBook, Google+, etc.).
-    Our original plan for this app was to match users based on specific criteria (e.g. location, interests, gender, etc.).
-    It took us longer to build the basic framework for this app than we had planned, and due to this class projects nature,
-    had to cut out several of our ideas. This app has a lot of potential and we would love to continue working on it
-    after we turn it in for our class. We would love to hear your feedback. Thanks for downloading!</string>
 </resources>
