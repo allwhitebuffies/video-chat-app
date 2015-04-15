@@ -39,6 +39,10 @@ public class MainActivity extends ActionBarActivity {
                 Intent intent2 = new Intent(MainActivity.this, ProfileActivity.class);
                 startActivity(intent2);
                 break;
+            case R.id.action_settings:
+                Intent intent3 = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent3);
+                break;
         }
 
         return super.onOptionsItemSelected(item);
