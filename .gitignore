@@ -1,3 +1,14 @@
+# Java class files
+*.class
+
+# build files
+build/
+bin/
+gen/
+
+# Android Studio
+*.iml
+.idea
 .gradle
 /local.properties
 /.idea/workspace.xml
