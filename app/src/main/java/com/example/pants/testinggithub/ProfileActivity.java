@@ -26,13 +26,13 @@ public class ProfileActivity extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.action_main:
-                Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
-                startActivity(intent);
-                break;
             case R.id.action_about:
                 Intent intent2 = new Intent(ProfileActivity.this, AboutActivity.class);
                 startActivity(intent2);
+                break;
+            case R.id.action_settings:
+                Intent intent3 = new Intent(ProfileActivity.this, SettingsActivity.class);
+                startActivity(intent3);
                 break;
         }
 

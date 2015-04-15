@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Video Shuffle</string>
+    <string name="app_name">vish</string>
     <string name="about">This is a video shuffling app that was made for an Information Security project.
     In order to use this app, you must sign in with a trusted social media outlet (e.g. FaceBook, Google+, etc.).
     Our original plan for this app was to match users based on specific criteria (e.g. location, interests, gender, etc.).
