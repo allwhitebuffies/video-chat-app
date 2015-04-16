@@ -37,6 +37,7 @@
         android:layout_centerHorizontal="true"
         android:indeterminateDrawable="@xml/progress">
         </ProgressBar>
-        <!--android:background="@xml/progress"-->
+
+    <!--android:background="@xml/progress"-->
 
 </RelativeLayout>
