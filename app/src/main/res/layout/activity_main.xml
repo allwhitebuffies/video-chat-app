@@ -7,11 +7,6 @@
     android:background="#ffff9a9a"
     android:padding="10dp">
 
-    <fragment android:id="@+id/main_fragment"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        class="com.example.pants.testinggithub.MainFragment"/>
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
