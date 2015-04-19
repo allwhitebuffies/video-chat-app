@@ -6,7 +6,7 @@ import org.json.JSONException;
 /**
  * Created by Josh on 4/18/2015.
  */
-public class User extends AbstractJsonBackedObject {
+public class User extends AbstractJSONObject {
     //Names in DB
     private static final String FACEBOOK_ID_ARG = "facebook_id";
     private static final String NAME_ARG = "name";
@@ -27,7 +27,7 @@ public class User extends AbstractJsonBackedObject {
 
     public void setFacebookID(String facebookID) {
         try {
-            return mPushData.put(FACEBOOK_ID_ARG, facebookID);
+             mPushData.put(FACEBOOK_ID_ARG, facebookID);
         } catch (JSONException e) {
         }
     }

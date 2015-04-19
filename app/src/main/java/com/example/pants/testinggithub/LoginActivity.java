@@ -8,12 +8,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.pants.testinggithub.Model.User;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+
+import org.json.JSONObject;
 
 
 public class LoginActivity extends ActionBarActivity {
@@ -31,7 +34,29 @@ public class LoginActivity extends ActionBarActivity {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 setContentView(R.layout.activity_main);
-                
+
+                String facebookID = null;
+                String name = null;
+                String firstName = null;
+                String lastName = null;
+                String gender = null;
+                String email = null;
+                String locale = null;
+                String timezone = null;
+
+                final User toAddUser = new User(facebookID, name, firstName, lastName, gender, email, locale, timezone);
+
+                JsonObjectRequest createUserRequest = toAddUser.createRequest(new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        //TODO: do something if sucess
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                    }
+                });
             }
 
             @Override
