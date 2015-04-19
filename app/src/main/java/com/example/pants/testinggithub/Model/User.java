@@ -135,6 +135,8 @@ public class User extends AbstractJSONObject {
             return mData.getString(TIMEZONE_ARG);
         } catch (JSONException e) {
         }
+
+        return null;
     }
 
     public User (String facebookID, String name, String firstName, String lastName, String gender, String email, String locale, String timezone) {
