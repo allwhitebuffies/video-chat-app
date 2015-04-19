@@ -72,6 +72,10 @@ public class SettingsActivity extends PreferenceActivity {
                 Intent intent3 = new Intent(SettingsActivity.this, ProfileActivity.class);
                 startActivity(intent3);
                 break;
+            case R.id.action_main:
+                Intent intent4 = new Intent(SettingsActivity.this, MainActivity.class);
+                startActivity(intent4);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
