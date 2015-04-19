@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
 
 import java.security.MessageDigest;
@@ -23,11 +24,14 @@ import java.security.NoSuchAlgorithmException;
 
 public class MainActivity extends ActionBarActivity {
 
+    CallbackManager callbackManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         FacebookSdk.sdkInitialize(getApplicationContext());
+        callbackManager = CallbackManager.Factory.create();
+        setContentView(R.layout.activity_main);
 
         /**This is used to find your devices hash key. It must be added to the android key hash list
          * on developers.facebook.com. In order to get this to work, you must create a textview in the
