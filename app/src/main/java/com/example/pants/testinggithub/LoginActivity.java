@@ -2,13 +2,13 @@ package com.example.pants.testinggithub;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -24,9 +24,7 @@ import com.facebook.GraphResponse;
 import com.facebook.Profile;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-
 import org.json.JSONObject;
-
 
 public class LoginActivity extends Activity {
     CallbackManager callbackManager;
@@ -77,6 +75,8 @@ public class LoginActivity extends Activity {
                     public void onErrorResponse(VolleyError volleyError) {
                     }
                 });*/
+                //Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                //startActivity(intent);
             }
 
             @Override
@@ -107,6 +107,25 @@ public class LoginActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_about:
+                Intent intent = new Intent(LoginActivity.this, AboutActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.action_profile:
+                Intent intent2 = new Intent(LoginActivity.this, ProfileActivity.class);
+                startActivity(intent2);
+                break;
+            case R.id.action_settings:
+                Intent intent3 = new Intent(LoginActivity.this, SettingsActivity.class);
+                startActivity(intent3);
+                break;
+            case R.id.action_main:
+                Intent intent4 = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent4);
+                break;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 }
