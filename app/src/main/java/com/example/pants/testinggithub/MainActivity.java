@@ -83,7 +83,9 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void clickShuffle(View view){
-        findViewById(R.id.shuffleButton).setVisibility(View.INVISIBLE);
-        findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
+        //findViewById(R.id.shuffleButton).setVisibility(View.INVISIBLE);
+        //findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
+        Intent intent = new Intent(MainActivity.this, ChatLoadingActivity.class);
+        startActivity(intent);
     }
 }
