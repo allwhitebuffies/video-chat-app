@@ -65,7 +65,7 @@ public class LoginActivity extends Activity {
                     }
                 }).executeAsync();
 
-
+                /**
                 GraphRequestAsyncTask createUserRequest = toAddUser.createRequest(new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
@@ -76,7 +76,7 @@ public class LoginActivity extends Activity {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
                     }
-                });
+                });*/
             }
 
             @Override
