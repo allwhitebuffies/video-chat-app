@@ -49,6 +49,7 @@ final class ProfileCache {
                 return new Profile(jsonObject);
             } catch (JSONException e) {
                 // Can't recover
+                throw new RuntimeException(e);
             }
         }
         return null;

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.provider.ContactsContract;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,7 +25,10 @@ import com.facebook.GraphResponse;
 import com.facebook.Profile;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.facebook.ProfileTracker;
 import org.json.JSONObject;
+
+import java.util.Arrays;
 
 public class LoginActivity extends Activity {
     CallbackManager callbackManager;
@@ -36,14 +40,29 @@ public class LoginActivity extends Activity {
         callbackManager = CallbackManager.Factory.create();
         setContentView(R.layout.activity_login);
         final LoginButton loginButton = (LoginButton) this.findViewById(R.id.login_button);
-        loginButton.setReadPermissions("public_profile","email");
+        loginButton.setReadPermissions(Arrays.asList("public_profile","email"));
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
+                GraphRequest request = GraphRequest.newMeRequest(
+                        loginResult.getAccessToken(),
+                        new GraphRequest.GraphJSONObjectCallback() {
+                            @Override
+                            public void onCompleted(
+                                    JSONObject object,
+                                    GraphResponse response) {
+                                // Application code
+                                Log.v("LoginActivity", response.toString());
+                            }
+                        });
+                Bundle parameters = new Bundle();
+                parameters.putString("fields", "id,name,firstName,lastName,gender,email,locale,timezone");
+                request.setParameters(parameters);
+                request.executeAsync();
                 setContentView(R.layout.activity_main);
-
-                AccessToken accessToken = loginResult.getAccessToken();
+/**
                 Profile profile = Profile.getCurrentProfile();
+                profile.fetchProfileForCurrentAccessToken();
 
                 String facebookID = profile.getId();
                 String name = profile.getName();
@@ -56,15 +75,7 @@ public class LoginActivity extends Activity {
 
                 final User toAddUser = new User(facebookID, name, firstName, lastName, gender, email, locale, timezone);
 
-                GraphRequestAsyncTask request = GraphRequest.newMeRequest(accessToken, new GraphRequest.GraphJSONObjectCallback() {
-                    @Override
-                    public void onCompleted(JSONObject object, GraphResponse response) {
-
-                    }
-                }).executeAsync();
-
-                /**
-                GraphRequestAsyncTask createUserRequest = toAddUser.createRequest(new Response.Listener<JSONObject>() {
+                JsonObjectRequest createUserRequest = toAddUser.createRequest(new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         //TODO: do something if sucess
@@ -75,8 +86,9 @@ public class LoginActivity extends Activity {
                     public void onErrorResponse(VolleyError volleyError) {
                     }
                 });*/
-                //Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                //startActivity(intent);
+
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
             }
 
             @Override

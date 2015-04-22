@@ -18,6 +18,12 @@ import android.widget.Toast;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -85,6 +91,23 @@ public class MainActivity extends ActionBarActivity {
     public void clickShuffle(View view){
         //findViewById(R.id.shuffleButton).setVisibility(View.INVISIBLE);
         //findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
+
+        HttpClient httpClient = new DefaultHttpClient();
+
+        try {
+            HttpPost request = new HttpPost("http://yoururl");
+            StringEntity params =new StringEntity("details={\"name\":\"myname\",\"age\":\"20\"} ");
+            request.addHeader("content-type", "application/x-www-form-urlencoded");
+            request.setEntity(params);
+            HttpResponse response = httpClient.execute(request);
+
+            // handle response here...
+        }catch (Exception ex) {
+            // handle exception here
+        } finally {
+            httpClient.getConnectionManager().shutdown();
+        }
+
         Intent intent = new Intent(MainActivity.this, ChatLoadingActivity.class);
         startActivity(intent);
     }
