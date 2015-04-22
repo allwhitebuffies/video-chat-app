@@ -90,7 +90,7 @@ public class MainActivity extends ActionBarActivity {
 
     public void clickShuffle(View view){
         //findViewById(R.id.shuffleButton).setVisibility(View.INVISIBLE);
-        //findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
+      /*  //findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
         String BASE_URL = "http://ec2-52-6-4-195.compute-1.amazonaws.com:3000/chats/create.json";
         HttpClient httpClient = new DefaultHttpClient();
 
@@ -107,8 +107,13 @@ public class MainActivity extends ActionBarActivity {
         } finally {
             httpClient.getConnectionManager().shutdown();
         }
+*/
 
-        Intent intent = new Intent(MainActivity.this, ChatLoadingActivity.class);
-        startActivity(intent);
+        //If this returns nothing then create
+        //Intent intent = new Intent(MainActivity.this, ChatLoadingActivity.class);
+        //startActivity(intent);
+
+        Intent intent2 = new Intent(MainActivity.this, CreateConferenceIdActivity.class);
+        startActivity(intent2);
     }
 }
