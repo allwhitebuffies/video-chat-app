@@ -91,13 +91,12 @@ public class MainActivity extends ActionBarActivity {
     public void clickShuffle(View view){
         //findViewById(R.id.shuffleButton).setVisibility(View.INVISIBLE);
         //findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
-        String BASE_URL = "http://ec2-52-6-4-195.compute-1.amazonaws.com:3000/chats/create.json";
         HttpClient httpClient = new DefaultHttpClient();
+        HttpPost request = new HttpPost(BASE_URL);
 
         try {
-            HttpPost request = new HttpPost(BASE_URL);
-            StringEntity params =new StringEntity("details={\"con_id\":\"01\"} ");
-            request.addHeader("content-type", "application/x-www-form-urlencoded");
+            StringEntity params = new StringEntity("details={\"con_id\":\"1\"} ");
+            request.addHeader("content-type", "application/json");
             request.setEntity(params);
             HttpResponse response = httpClient.execute(request);
 
